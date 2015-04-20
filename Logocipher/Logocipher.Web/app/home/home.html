@@ -1,0 +1,54 @@
+﻿<h2>{{vm.title}}</h2>
+<p>Logocipher, the name, is a weak portmanteau (or amalgam) of Logos (word) and Cipher (puzzle). Logocipher allows the generation of anagrams from words and phrases.</p>
+
+<h3>Approach</h3>
+
+<p>Initially the solution started with breaking apart the word that was supplied by the user into all of its various possible combinations of characters that could make up one or more phrases. </p>
+
+<p>At 6 characters, that approach was starting to be questionable in performance and at 7 characters the performance became unbearably slow.</p>
+
+<p>In the current revision, Logocipher comes at this from the opposite direction, by reducing the number of words to compare against from the starting dictionary of ~300k words by filtering out words that are too long, words that don't contain only letters that are part of the user supplied word, and so forth. Then Logocipher takes that subset of possible words and combines them in all possibles ways to compare against the supplied word.</p>
+
+<p>This has resulted in much stronger performance of larger words than was possible from the other direction. For 'octopus', there are only ~200 possible words to recombine in the source dictionary.</p>
+
+<p>Judicious use of some parallel functionality helped slightly for both loading of the dictionary and anagram generation. While better, the speed of the retrieval on words larger than 12 or so characters can still use some improvement.</p>
+
+<h3>Built with:</h3>
+
+<ul>
+    <li>Visual Studio 2013 Update 4 because .NET</li>
+    <li>ASP.NET Web API for RESTfulness</li>
+    <li>Ninject for server side IOC</li>
+    <li>Bower for client side package management</li>
+    <li>Gulp for moving 3rd party client assets into the solution</li>
+    <li>AngularJS for client side SPAness</li>
+    <li>Bootstrap for UI goodness</li>
+</ul>
+
+<h3>To Run</h3>
+
+<ul>
+    <li>Restore Nuget packages (usually with a build)</li>
+    <li>Restore Bower packages (usually with <code>bower install</code>)</li>
+    <li>Restore NPM packages (usually with <code>npm install</code>)</li>
+</ul>
+
+<h3>TODO</h3>
+
+<ul>
+    <li>Improve performance of Anagram lookup</li>
+    <li>Evaluate storage of word dictionary, may impact the previous item</li>
+    <li>Improve code organization to better support unit testing and add unit tests</li>
+    <li>Add build, watch, &amp; test gulp tasks for client side assets</li>
+    <li>Improve error handling and feedback mechanisms</li>
+    <li>Evaluate browser support (this was only tested on Chrome)</li>
+    <li>Pull the content for the home page directly from the readme markdown file</li>
+    <li>Other cleanup items, such as better relative URLs, placement of 'page' titles, etc.</li>
+    <li>Link generated anagrams with the definition of the words in the anagram</li>
+</ul>
+
+<h3>Additional Notes</h3>
+
+<ul>
+    <li>There's a small console app to do basic testing without having to fire up the rest of the stack</li>
+</ul>

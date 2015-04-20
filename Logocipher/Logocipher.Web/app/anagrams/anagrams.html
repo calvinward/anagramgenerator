@@ -1,0 +1,31 @@
+﻿<h2>{{vm.title}}</h2>
+
+<form class="form-inline" ng-submit="vm.submit()">
+    <div class="form-group">
+        <label class="sr-only" for="word">Email address</label>
+        <input type="text" ng-model="vm.word" class="form-control" id="word" placeholder="Enter word">
+    </div>
+
+    <button type="submit" class="btn btn-default">Get Anagrams</button>
+</form>
+
+<h3>Results</h3>
+
+<div ng-if="vm.showInstructions" class="alert-info alert">
+    Enter a word to begin.
+</div>
+
+<div ng-if="vm.showEmptyMessage" class="alert-warning alert">
+    No results were found.
+</div>
+
+
+<div ng-if="vm.anagrams.length">
+    <div>{{vm.anagrams.length}} anagrams found!</div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="anagram in vm.anagrams">
+            {{anagram}}
+        </li>
+    </ul>
+
+</div>

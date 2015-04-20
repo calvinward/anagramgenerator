@@ -1,0 +1,14 @@
+﻿<h2>{{vm.title}}</h2>
+
+
+<div class="letter-display">
+    <span ng-repeat="letter in vm.letters"><a ng-click="vm.seeWords(letter)">[{{letter}}]</a></span>
+</div>
+
+<div ng-if="vm.words.length">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="word in vm.words">
+            {{word}}
+        </li>
+    </ul>
+</div>
