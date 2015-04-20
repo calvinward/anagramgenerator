@@ -165,7 +165,6 @@
     <Content Include="dist\vendor\angular-route\angular-route.min.js.map" />
     <None Include="package.json" />
     <None Include="packages.config" />
-    <Content Include="README.md" />
     <None Include="bower.json" />
     <None Include="Properties\PublishProfiles\logocipher.pubxml" />
     <None Include="Web.Debug.config">
